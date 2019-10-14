@@ -18,7 +18,7 @@ class MediaJsonDownload(url: String, downloadObservable: IDownloadObservable) :
 
     public fun getJsonText(): String{
         try {
-            var str: String = String(content, Charset.forName("UTF-8"))
+            var str: String = String(content!!, Charset.forName("UTF-8"))
 
             return str
         } catch (ex: Exception){

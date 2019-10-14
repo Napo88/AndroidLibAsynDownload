@@ -16,7 +16,7 @@ class MediaImageDownload(url: String, downloadObservable: IDownloadObservable) :
     }
 
     public fun getImageBitmap(): Bitmap{
-        var bitmap: Bitmap = BitmapFactory.decodeByteArray(content, 0, content.size)
+        var bitmap: Bitmap = BitmapFactory.decodeByteArray(content, 0, content!!.size)
 
         return bitmap
     }

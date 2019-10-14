@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException
 
 abstract class MediaDownload {
     var url: String
-    lateinit var content: ByteArray
+    var content: ByteArray? = null
     var contentType: DataType
     var downloadObservable: IDownloadObservable
     var MD5Key: String
