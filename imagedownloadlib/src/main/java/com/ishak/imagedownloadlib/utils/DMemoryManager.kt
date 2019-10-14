@@ -6,9 +6,9 @@ import com.ishak.imagesdownloadlibtest.models.MediaDownload
 class DMemoryManager() {
     private var maxCacheSize: Int
     companion object{
-        lateinit var dMenory: DMemoryManager
+        var dMenory: DMemoryManager? = null
 
-        fun getInstance(): DMemoryManager {
+        fun getInstance(): DMemoryManager? {
             if (dMenory == null)
                 dMenory = DMemoryManager()
 

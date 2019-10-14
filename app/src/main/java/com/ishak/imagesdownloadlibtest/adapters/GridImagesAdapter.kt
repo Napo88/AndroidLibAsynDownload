@@ -14,22 +14,22 @@ import com.ishak.imagesdownloadlibtest.observables.IDownloadObservable
 import com.ishak.imagesdownloadlibtest.utils.MediaDownloadType
 
 class GridImagesAdapter: BaseAdapter {
-    private lateinit var context: Context
-    private lateinit var mediaDownloadType: MediaDownloadType
+    private var context: Context
+    private var mediaDownloadType: MediaDownloadType
     var imageUrls: List<String> = ArrayList()
 
     constructor(context: Context?, imageUrls: List<String>) : super() {
         this.context = context!!
         this.imageUrls = imageUrls
-        mediaDownloadType = MediaDownloadType.getInstance()
+        mediaDownloadType = MediaDownloadType.getInstance()!!
     }
 
 
     @ExperimentalStdlibApi
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        var imageView: ImageView = ImageView(context)
+        var imageView = ImageView(context)
 
-        var mediaImageDownload: MediaImageDownload = MediaImageDownload(imageUrls.get(position), object: IDownloadObservable{
+        var mediaImageDownload = MediaImageDownload(imageUrls.get(position), object: IDownloadObservable{
             override fun onStart(mMediaDownload: MediaDownload) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }

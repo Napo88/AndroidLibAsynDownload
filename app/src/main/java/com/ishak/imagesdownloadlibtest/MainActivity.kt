@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
     @ExperimentalStdlibApi
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if(item!!.itemId == R.id.nav_refresh){
-            mediaDownloadType = MediaDownloadType.getInstance()
+            mediaDownloadType = MediaDownloadType.getInstance()!!
             imgAdapter = GridImagesAdapter(this, imgUrls)
             handler.postDelayed(object: Runnable{
                 override fun run() {
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             }, 1000)
 
             return true
-        } else if (item!!.itemId == R.id.nav_clear_cache){
+        } else if (item.itemId == R.id.nav_clear_cache){
             mediaDownloadType.clearCache()
         }
 
@@ -65,7 +65,6 @@ class MainActivity : AppCompatActivity() {
 
     @ExperimentalStdlibApi
     fun getContent(){
-        var i: Int
         var contentData: MediaDownload = MediaJsonDownload(Base_URL, object: IDownloadObservable {
             override fun onStart(mMediaDownload: MediaDownload) {
 

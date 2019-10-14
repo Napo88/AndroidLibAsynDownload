@@ -9,9 +9,9 @@ import kotlin.collections.HashMap
 
 class MediaDownloadType() {
     companion object{
-        private lateinit var instance: MediaDownloadType
+        private var instance: MediaDownloadType? = null
 
-        fun getInstance(): MediaDownloadType{
+        fun getInstance(): MediaDownloadType?{
             if (instance == null)
                 instance = MediaDownloadType()
 
@@ -23,7 +23,7 @@ class MediaDownloadType() {
     private var dMemoryManager: DMemoryManager
 
     init {
-        dMemoryManager = DMemoryManager.getInstance()
+        dMemoryManager = DMemoryManager.getInstance()!!
     }
 
     fun getRequest(mediaDownload: MediaDownload){
